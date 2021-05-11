@@ -1,5 +1,13 @@
 package com.bhaskor.pieces;
 
-public class Knight {
+import com.bhaskor.Board;
+
+public class Knight extends Piece{
+
+    @Override
+    public String[] getPossibleMoves(Board board, String currentSquare) {
+        // TODO Auto-generated method stub
+        return null;
+    }
     
 }
