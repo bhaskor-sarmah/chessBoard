@@ -1,6 +1,6 @@
 package com.bhaskor.pieces;
 
-import com.bhaskor.pieces.Knight;
+import com.bhaskor.Board;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,16 +12,35 @@ import org.mockito.MockitoAnnotations;
 
 @Tag("Knight")
 public class KnightTest {
-    @Mock private Knight knight;
+    @Mock
+    private Knight knight;
+    @Mock
+    private Board board;
 
     @BeforeEach
-    public void setup(){
-        MockitoAnnotations.initMocks(this); //without this you will get NPE
+    public void setup() {
+        MockitoAnnotations.initMocks(this); // without this you will get NPE
     }
 
     @Test
     @DisplayName("Test successful Knight creation")
-    void testChessBoard() {
+    void testKnightObject() {
         Assertions.assertNotNull(knight);
+    }
+
+    @Test
+    @DisplayName("Test successful Knight moves")
+    void testKnightMoves() {
+        Board board = new Board();
+        Knight knight = new Knight();
+        
+        StringBuilder sb = new StringBuilder();
+        for (String moves : knight.getPossibleMoves(board, "E3")) {
+            sb.append(moves + ",");
+        }
+        if (sb.length() > 0)
+            sb.deleteCharAt(sb.length() - 1);
+
+        Assertions.assertEquals("F5,F1,D5,D1,G4,G2,C4,C2",sb.toString());
     }
 }

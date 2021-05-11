@@ -3,8 +3,13 @@ package com.bhaskor;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import com.bhaskor.pieces.Bishop;
+import com.bhaskor.pieces.King;
 import com.bhaskor.pieces.Knight;
+import com.bhaskor.pieces.Pawns;
 import com.bhaskor.pieces.Piece;
+import com.bhaskor.pieces.Queen;
+import com.bhaskor.pieces.Rook;
 
 /**
  * Chess Board!
@@ -30,6 +35,8 @@ public final class App {
             String inputPieceName = input[0];
             String boardPosition = input[1];
 
+            scan.close();
+
             if (!Pattern.matches(pattern, boardPosition)) {
                 System.out.println("Invalid Board Position");
                 System.exit(0);
@@ -39,17 +46,22 @@ public final class App {
 
             switch (inputPieceName.toLowerCase()) {
                 case "king":
-                    piece = new Knight();
+                    piece = new King();
                     break;
                 case "queen":
+                    piece = new Queen();
                     break;
                 case "rook":
+                    piece = new Rook();
                     break;
                 case "bishop":
+                    piece = new Bishop();
                     break;
                 case "knight":
+                    piece = new Knight();
                     break;
                 case "pawn":
+                    piece = new Pawns();
                     break;
                 default:
                     System.out.println("Invalid Input Piece Name !");

@@ -21,11 +21,15 @@ public class Board {
 
     // Initialize a board with all the squares
     public Board() {
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 8; i++) { // Time Complexity is: Big O(8*8) => O(64) => O(Constant)
             for (int j = 0; j < 8; j++) {
                 squares[i][j] = new Squares(veritcalAxis[i], horizontalAxis[j], false);
             }
         }
+    }
+
+    public String getSquareName(int i, int j){
+        return squares[i][j].getVertical()+squares[i][j].getHorizontal();
     }
 
     // Print the board squares
