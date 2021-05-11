@@ -15,7 +15,7 @@ public final class App {
 
     public static void main(String[] args) {
         try {
-            final String pattern = "[BKNPQR]?";
+            final String pattern = "^[ABCDEFGHabcdefgh][1-8]$";
 
             Scanner scan = new Scanner(System.in);
 
@@ -29,10 +29,8 @@ public final class App {
             String input[] = scan.nextLine().split(" ");
             String inputPieceName = input[0];
             String boardPosition = input[1];
-            
-            if(Pattern.matches(pattern, boardPosition)){
 
-            }else{
+            if (!Pattern.matches(pattern, boardPosition)) {
                 System.out.println("Invalid Board Position");
                 System.exit(0);
             }
