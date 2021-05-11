@@ -8,7 +8,7 @@ public class Rook extends Piece {
 
     @Override
     public ArrayList<String> getPossibleMoves(Board board, int[] currentIndex) {
-        return null;
+        return HelperClass.getAllVericalHorizontalMovements(board, currentIndex);
     }
 
 }

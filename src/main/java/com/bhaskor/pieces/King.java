@@ -8,7 +8,7 @@ public class King  extends Piece{
 
     @Override
     public ArrayList<String> getPossibleMoves(Board board, int[] currentIndex) {
-        return null;
+        return HelperClass.getAllOneSquareMovements(board, currentIndex);
     }
     
 }

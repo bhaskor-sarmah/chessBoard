@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-@Tag("Knight")
-public class KnightTest {
+@Tag("Queen")
+public class QueenTest {
     @Mock
-    private Knight knight;
+    private Queen queen;
     @Mock
     private Board board;
 
@@ -23,38 +23,38 @@ public class KnightTest {
     }
 
     @Test
-    @DisplayName("Test successful Knight creation")
-    void testKnightObject() {
-        Assertions.assertNotNull(knight);
+    @DisplayName("Test successful Queen creation")
+    void testQueenObject() {
+        Assertions.assertNotNull(queen);
     }
 
     @Test
-    @DisplayName("Test successful Knight moves")
-    void testKnightMoves() {
+    @DisplayName("Test successful Queen moves")
+    void testQueenMoves() {
         Board board = new Board();
-        Knight knight = new Knight();
+        Queen queen = new Queen();
         StringBuilder sb = new StringBuilder();
-        for (String moves : knight.getPossibleMoves(board, HelperClass.getIndex(board, "E3"))) {
+        for (String moves : queen.getPossibleMoves(board, HelperClass.getIndex(board, "E4"))) {
             sb.append(moves + ",");
         }
         if (sb.length() > 0)
             sb.deleteCharAt(sb.length() - 1);
 
-        Assertions.assertEquals("F5,F1,D5,D1,G4,G2,C4,C2",sb.toString());
+        Assertions.assertEquals("F5,F3,D3,D5,G6,G2,C2,C6,H7,H1,B1,B7,A8,E5,E3,F4,D4,E6,E2,G4,C4,E7,E1,H4,B4,E8,A4", sb.toString());
     }
 
     @Test
-    @DisplayName("Test Knight on the edge")
-    void testKnightOnTheEdge() {
+    @DisplayName("Test Queen on the edge")
+    void testQueenOnTheEdge() {
         Board board = new Board();
-        Knight knight = new Knight();
+        Queen queen = new Queen();
         StringBuilder sb = new StringBuilder();
-        for (String moves : knight.getPossibleMoves(board, HelperClass.getIndex(board, "E1"))) {
+        for (String moves : queen.getPossibleMoves(board, HelperClass.getIndex(board, "A1"))) {
             sb.append(moves + ",");
         }
         if (sb.length() > 0)
             sb.deleteCharAt(sb.length() - 1);
 
-        Assertions.assertEquals("F3,D3,G2,C2",sb.toString());
+        Assertions.assertEquals("B2,C3,D4,E5,F6,G7,H8,A2,B1,A3,C1,A4,D1,A5,E1,A6,F1,A7,G1,A8,H1", sb.toString());
     }
 }

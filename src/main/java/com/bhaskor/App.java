@@ -75,17 +75,19 @@ public final class App {
 
                 StringBuilder sb = new StringBuilder();
                 // For all the possible moves provided from the piece append to a String Builder
-                // Also finding the current index of the boardPosition provided using HelperClass.getIndex() call
+                // Also finding the current index of the boardPosition provided using
+                // HelperClass.getIndex() call
                 for (String moves : piece.getPossibleMoves(board, HelperClass.getIndex(board, boardPosition))) {
                     sb.append(moves + ",");
                 }
 
                 // If possible moves present then remove the last ending comma(,)
-                if (sb.length() > 0)
+                if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
-
-                // Print the output to the screen
-                System.out.println(sb.toString());
+                    // Print the output to the screen
+                    System.out.println(sb.toString());
+                } else
+                    System.out.println("No Possible Moves Found !");
             }
 
         } catch (ArrayIndexOutOfBoundsException e) {

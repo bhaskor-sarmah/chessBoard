@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-@Tag("Knight")
-public class KnightTest {
+@Tag("King")
+public class KingTest {
     @Mock
-    private Knight knight;
+    private King king;
     @Mock
     private Board board;
 
@@ -23,38 +23,38 @@ public class KnightTest {
     }
 
     @Test
-    @DisplayName("Test successful Knight creation")
-    void testKnightObject() {
-        Assertions.assertNotNull(knight);
+    @DisplayName("Test successful King creation")
+    void testKingObject() {
+        Assertions.assertNotNull(king);
     }
 
     @Test
-    @DisplayName("Test successful Knight moves")
-    void testKnightMoves() {
+    @DisplayName("Test successful King moves")
+    void testKingMoves() {
         Board board = new Board();
-        Knight knight = new Knight();
+        King king = new King();
         StringBuilder sb = new StringBuilder();
-        for (String moves : knight.getPossibleMoves(board, HelperClass.getIndex(board, "E3"))) {
+        for (String moves : king.getPossibleMoves(board, HelperClass.getIndex(board, "E3"))) {
             sb.append(moves + ",");
         }
         if (sb.length() > 0)
             sb.deleteCharAt(sb.length() - 1);
 
-        Assertions.assertEquals("F5,F1,D5,D1,G4,G2,C4,C2",sb.toString());
+        Assertions.assertEquals("E2,E4,F3,F4,F2,D3,D2,D4",sb.toString());
     }
 
     @Test
-    @DisplayName("Test Knight on the edge")
-    void testKnightOnTheEdge() {
+    @DisplayName("Test King on the edge")
+    void testKingOnTheEdge() {
         Board board = new Board();
-        Knight knight = new Knight();
+        King king = new King();
         StringBuilder sb = new StringBuilder();
-        for (String moves : knight.getPossibleMoves(board, HelperClass.getIndex(board, "E1"))) {
+        for (String moves : king.getPossibleMoves(board, HelperClass.getIndex(board, "H1"))) {
             sb.append(moves + ",");
         }
         if (sb.length() > 0)
             sb.deleteCharAt(sb.length() - 1);
 
-        Assertions.assertEquals("F3,D3,G2,C2",sb.toString());
+        Assertions.assertEquals("H2,G1,G2",sb.toString());
     }
 }

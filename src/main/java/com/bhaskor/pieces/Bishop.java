@@ -8,7 +8,7 @@ public class Bishop extends Piece{
 
     @Override
     public ArrayList<String> getPossibleMoves(Board board, int[] currentIndex) {
-        return null;
+        return HelperClass.getAllDiagonalMovements(board, currentIndex);
     }
     
 }
