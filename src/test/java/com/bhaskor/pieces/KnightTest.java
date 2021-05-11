@@ -1,6 +1,7 @@
 package com.bhaskor.pieces;
 
 import com.bhaskor.Board;
+import com.bhaskor.pieces.HelperClass;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,9 +34,8 @@ public class KnightTest {
     void testKnightMoves() {
         Board board = new Board();
         Knight knight = new Knight();
-        
         StringBuilder sb = new StringBuilder();
-        for (String moves : knight.getPossibleMoves(board, "E3")) {
+        for (String moves : knight.getPossibleMoves(board, HelperClass.getIndex(board, "E3"))) {
             sb.append(moves + ",");
         }
         if (sb.length() > 0)

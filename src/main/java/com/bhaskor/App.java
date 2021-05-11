@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import com.bhaskor.pieces.Bishop;
+import com.bhaskor.pieces.HelperClass;
 import com.bhaskor.pieces.King;
 import com.bhaskor.pieces.Knight;
 import com.bhaskor.pieces.Pawns;
@@ -71,9 +72,11 @@ public final class App {
 
             // If valid piece is provided
             if (piece != null) {
+
                 StringBuilder sb = new StringBuilder();
                 // For all the possible moves provided from the piece append to a String Builder
-                for (String moves : piece.getPossibleMoves(board, boardPosition)) {
+                // Also finding the current index of the boardPosition provided using HelperClass.getIndex() call
+                for (String moves : piece.getPossibleMoves(board, HelperClass.getIndex(board, boardPosition))) {
                     sb.append(moves + ",");
                 }
 

@@ -8,5 +8,5 @@ import com.bhaskor.Board;
  * Piece
  */
 public abstract class Piece {
-    public abstract ArrayList<String> getPossibleMoves(Board board, String currentSquare);
+    public abstract ArrayList<String> getPossibleMoves(Board board, int[] currentSquareIndex);
 }
