@@ -1,17 +1,37 @@
 package com.bhaskor;
 
+import java.util.Scanner;
+
+import com.bhaskor.pieces.Knight;
+
 /**
- * Hello world!
+ * Chess Board!
  */
 public final class App {
     private App() {
     }
 
-    /**
-     * Says hello to the world.
-     * @param args The arguments of the program.
-     */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        try {
+            Scanner scan = new Scanner(System.in);
+
+            // Creating a new chess board
+            Board board = new Board();
+
+            // User Input
+            System.out.println("Enter The Input");
+
+            // Splitting to get Piece Name and Position
+            String input[] = scan.nextLine().split(" ");
+            String inputPieceName = input[0];
+            String boardPosition = input[1];
+
+            board.printBoardSquares();
+
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("ArrayIndexOutOfBoundsException : " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Exception : " + e.getMessage());
+        }
     }
 }
